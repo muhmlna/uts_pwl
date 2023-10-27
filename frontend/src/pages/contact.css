@@ -1,0 +1,30 @@
+.contact {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .contact h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .contact p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .contact a {
+    text-decoration: none;
+    color: #0073b1; /* Warna LinkedIn */
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  .contact p a {
+    color: #333; /* Warna teks untuk tautan */
+  }
+  

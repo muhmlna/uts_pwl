@@ -1,0 +1,4 @@
+pyramid==2.0.2
+faker==0.7.0
+faker-commerce==1.0.3
+pyramid-default-cors==0.2.1

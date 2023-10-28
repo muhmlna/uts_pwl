@@ -1,6 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import { PRODUCTS } from "../products";
 
+import { backendUrl } from "../env";
+let products = [];
+fetch(`${backendUrl}`)
+  .then((response) => response.json())
+  .then((data) => (products = data.data));
+
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
@@ -15,14 +21,11 @@ export const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
   const getTotalCartAmount = () => {
-    let totalAmount = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
-        totalAmount += cartItems[item] * itemInfo.price;
-      }
+    let total = 0;
+    for (let i = 1; i < products.length + 1; i++) {
+      total += products[i - 1].price * cartItems[i];
     }
-    return totalAmount;
+    return total;
   };
 
   const addToCart = (itemId) => {
